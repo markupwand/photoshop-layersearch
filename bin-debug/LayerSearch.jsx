@@ -11,7 +11,7 @@ function refreshLayers(){
 	    layer = current_level_layers[_i];
 	    if (layer.typename === "ArtLayer") {
 	      d = new Date();
-	      content = layer.name + "haha";
+	      content = {name :layer.name, id: layer.id};
 	      document_art_layers.push(content);
 	    } else if (layer.typename === "LayerSet") {
 	      _ref = layer.layers;
