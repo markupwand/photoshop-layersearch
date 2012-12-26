@@ -5,6 +5,16 @@ Application
 {
 	backgroundColor: #D6D6D6;
 	themeColor: #FFFFFF;
-	verticalAlign: middle;
+	verticalAlign: top;
+	padding: 0;
 }
-	
+
+
+TextInput, List, Button {
+	borderColor: black;
+	borderThickness: 1;
+}
+
+Button:hover {
+	borderColor: black;
+}

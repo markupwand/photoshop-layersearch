@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
-				width="200" height="250" minWidth="200" minHeight="250" layout="absolute">
+				width="100%" height="100%" minWidth="200" minHeight="250" layout="vertical"
+				creationComplete="refreshLayers();">
+	<mx:TraceTarget level="2"/>
 	<mx:Style source="LayerSearch.css"/>
-	<mx:Label x="75" y="11" fontSize="12" text="LAYERS"/>
-	<mx:List x="19" top="40" bottom="10"></mx:List>
-	
+	<mx:VBox width="90%">
+		<mx:HBox>
+		   <mx:TextInput width="98%"/>		
+		   <mx:Button icon="@Embed('assets/refresh.gif')"  click="refreshLayers()"/>
+		</mx:HBox>
+		<mx:Label  text="Logs" id="loglabel" />
+		<mx:List id="layerlistbox" width="100%"></mx:List>		
+	</mx:VBox>
+	<mx:Script>
+		<![CDATA[
+			import com.adobe.csxs.core.CSXSInterface;
+			import com.adobe.csxs.types.SyncRequestResult;
+			
+			import mx.controls.Alert;
+			
+			public function refreshLayers():void{
+				loglabel.text = "Initializing";
+				var layers_list:Array = [];
+				loglabel.text = "Fetching from server";
+				var reqResult:SyncRequestResult = CSXSInterface.instance.evalScript("refreshLayers");
+				if(SyncRequestResult.COMPLETE == reqResult.status){
+					loglabel.text = "Done fetching";
+					var layerlist:Array = reqResult.data.layerlist.split("|");
+					layerlistbox.dataProvider =	layerlist;
+				}
+			}
+		]]>
+	</mx:Script>
 </mx:Application>
