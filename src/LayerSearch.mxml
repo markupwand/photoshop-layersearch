@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				width="200" height="250" minWidth="200" minHeight="250" layout="absolute">
+	<mx:Style source="LayerSearch.css"/>
+	<mx:Label x="75" y="11" fontSize="12" text="LAYERS"/>
+	<mx:List x="19" top="40" bottom="10"></mx:List>
+	
+</mx:Application>
