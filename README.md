@@ -25,3 +25,7 @@ mkdir -p /Applications/Adobe\ Photoshop\ CS5/Plug-ins/Panels/LayerSearch
 cp bin-debug/LayerSearch.* /Applications/Adobe\ Photoshop\ CS5/Plug-ins/Panels/LayerSearch/
 </code>
 
+
+Use
+===
+After opening a psd file in photoshop, Window->Extensions->LayerSearch
