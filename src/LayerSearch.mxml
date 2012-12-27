@@ -1,35 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
 				width="100%" height="100%" minWidth="200" minHeight="250" layout="vertical"
-				creationComplete="refreshLayers();">
+				creationComplete="refreshLayersInit();">
 	<mx:TraceTarget level="2"/>
 	<mx:Style source="LayerSearch.css"/>
 	<mx:VBox width="90%">
 		<mx:HBox>
-		   <mx:TextInput width="98%"/>		
+		   <mx:TextInput width="98%" id="filter" change="setFilter()"/>		
 		   <mx:Button icon="@Embed('assets/refresh.gif')"  click="refreshLayers()"/>
 		</mx:HBox>
 		<mx:Label  text="Logs" id="loglabel" />
-		<mx:List id="layerlistbox" width="100%"></mx:List>		
+		<mx:List id="layerlistbox" width="100%" height="90%"></mx:List>		
 	</mx:VBox>
 	<mx:Script>
 		<![CDATA[
 			import com.adobe.csxs.core.CSXSInterface;
 			import com.adobe.csxs.types.SyncRequestResult;
+			import com.adobe.serialization.json.JSON;
 			
+			import flash.utils.setTimeout;
+			
+			import mx.collections.ArrayCollection;
 			import mx.controls.Alert;
 			
+			private var layerlist:ArrayCollection = new ArrayCollection();
+			private var text:String = "";
+			
+			public function setFilter():void {
+				this.text = filter.text;
+				this.layerlist.refresh();
+			}
+			
+			public function refreshLayersInit():void {
+				this.layerlist.filterFunction = layerFilter;
+				loglabel.text = "Loading all layers (takes time)";
+				setTimeout(refreshLayers, 1000);
+			}
+			
+			public function layerFilter(item:Object):Boolean {
+				if (item.toLowerCase().indexOf(this.text) >= 0) {
+					return true;    
+				}
+				else {
+					return false;
+				}
+			}
+			
 			public function refreshLayers():void{
-				loglabel.text = "Initializing";
 				var layers_list:Array = [];
-				loglabel.text = "Fetching from server";
 				var reqResult:SyncRequestResult = CSXSInterface.instance.evalScript("refreshLayers");
 				if(SyncRequestResult.COMPLETE == reqResult.status){
-					loglabel.text = "Done fetching";
-					var layerlist:Array = reqResult.data.layerlist.split("|");
+					loglabel.text = "Done loading";
+					loglabel.text = reqResult.data.layerlist;
+					layerlist = JSON.decode(reqResult.data.layerlist);
+					loglabel.text = layerlist.toString();
 					layerlistbox.dataProvider =	layerlist;
 				}
 			}
+			
+
 		]]>
 	</mx:Script>
 </mx:Application>

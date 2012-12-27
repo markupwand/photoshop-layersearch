@@ -14,7 +14,3 @@ TextInput, List, Button {
 	borderColor: black;
 	borderThickness: 1;
 }
-
-Button:hover {
-	borderColor: black;
-}
