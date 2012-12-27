@@ -17,14 +17,12 @@ Screenshots
 
 Install
 =======
-<code>
-mkdir -p /Applications/Adobe\ Photoshop\ CS5/Plug-ins/Panels/LayerSearch
-</code>
+    cd /tmp
+    git clone git@github.com:alagu/photoshop-layer-search-plugin.git
+    mkdir -p /Applications/Adobe\ Photoshop\ CS5/Plug-ins/Panels/LayerSearch
+    cp photoshop-layer-search-plugin/bin-debug/LayerSearch.* /Applications/Adobe\ Photoshop\ CS5/Plug-ins/Panels/LayerSearch/
 
-<code>
-cp bin-debug/LayerSearch.* /Applications/Adobe\ Photoshop\ CS5/Plug-ins/Panels/LayerSearch/
-</code>
-
+(Warning: Install steps not tested)
 
 Use
 ===
