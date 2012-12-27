@@ -367,6 +367,10 @@ function refreshLayers(){
 	return layer_xml_cache;
 }
 
+function selectLayer(layer_name) {
+	alert(layer_name);
+}
+
 function convertToXML(property, identifier){
    var type = typeof property;
    var xml = '<property id = "' + identifier + '" >';
