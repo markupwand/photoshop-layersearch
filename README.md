@@ -12,7 +12,8 @@ I have tested it only in Adobe PS5, Mac.
 
 Screenshots
 ===========
-[tamp3](http://cl.ly/image/3N382G2g1Y3P/Screen%20Shot%202012-12-27%20at%2011.19.48%20AM.png)
+![Search](http://cl.ly/image/3N382G2g1Y3P/Screen%20Shot%202012-12-27%20at%2011.19.48%20AM.png)
+![Focus](http://cl.ly/image/3e071Z1Q0t2I/Screen%20Shot%202012-12-27%20at%2011.19.34%20AM.png)
 
 Install
 =======
