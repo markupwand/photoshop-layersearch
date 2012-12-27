@@ -343,7 +343,7 @@ function refreshLayers(){
 		    layer = current_level_layers[_i];
 		    if (layer.typename === "ArtLayer") {
 		      d = new Date();	
-		      content = {name: layer.name};
+		      content = layer.name;
 		      document_art_layers.push(content);
 		    } else if (layer.typename === "LayerSet") {
 		      _ref = layer.layers;

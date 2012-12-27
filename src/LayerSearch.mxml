@@ -29,15 +29,16 @@
 			public function setFilter():void {
 				this.text = filter.text;
 				this.layerlist.refresh();
+				this.loglabel.text = this.layerlist.length.toString() + " layers found";
 			}
 			
 			public function refreshLayersInit():void {
-				this.layerlist.filterFunction = layerFilter;
 				loglabel.text = "Loading all layers (takes time)";
 				setTimeout(refreshLayers, 1000);
 			}
 			
 			public function layerFilter(item:Object):Boolean {
+				loglabel.text = "Checking " + item.toString();
 				if (item.toLowerCase().indexOf(this.text) >= 0) {
 					return true;    
 				}
@@ -52,8 +53,9 @@
 				if(SyncRequestResult.COMPLETE == reqResult.status){
 					loglabel.text = "Done loading";
 					loglabel.text = reqResult.data.layerlist;
-					layerlist = JSON.decode(reqResult.data.layerlist);
-					loglabel.text = layerlist.toString();
+					layerlist = new ArrayCollection(JSON.decode(reqResult.data.layerlist));
+					layerlist.filterFunction = layerFilter;
+					loglabel.text = "Populated";
 					layerlistbox.dataProvider =	layerlist;
 				}
 			}
