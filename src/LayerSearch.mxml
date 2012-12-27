@@ -10,7 +10,7 @@
 		   <mx:Button icon="@Embed('assets/refresh.gif')"  click="refreshLayers()"/>
 		</mx:HBox>
 		<mx:Label  text="Logs" id="loglabel" />
-		<mx:List id="layerlistbox" width="100%" height="90%" selectable="true" selectionColor="0x999999" ></mx:List>		
+		<mx:List id="layerlistbox" width="100%" height="90%" selectable="true" selectionColor="0x999999" change="selectLayer()"></mx:List>		
 	</mx:VBox>
 	<mx:Script>
 		<![CDATA[
@@ -47,7 +47,7 @@
 				}
 			}
 			
-			public function refreshLayers():void{
+			public function refreshLayers():void {
 				var layers_list:Array = [];
 				var reqResult:SyncRequestResult = CSXSInterface.instance.evalScript("refreshLayers");
 				if(SyncRequestResult.COMPLETE == reqResult.status){
@@ -59,6 +59,10 @@
 					layerlistbox.dataProvider =	layerlist;
 					layerlistbox.selectable = true;
 				}
+			}
+			
+			public function selectLayer():void {
+				loglabel.text = layerlistbox.selectedItem.toString() + " selected";
 			}
 			
 
