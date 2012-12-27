@@ -326,7 +326,7 @@ if (typeof JSON !== 'object') {
 }());
 
 var layer_xml_cache = [];
-var layer_cache = [];
+var layer_cache = {};
 
 function refreshLayers(){
 	var document = app.activeDocument;
@@ -344,6 +344,7 @@ function refreshLayers(){
 		    if (layer.typename === "ArtLayer") {
 		      d = new Date();	
 		      content = layer.name;
+		      layer_cache[layer.name] = layer;
 		      document_art_layers.push(content);
 		    } else if (layer.typename === "LayerSet") {
 		      _ref = layer.layers;
@@ -364,11 +365,13 @@ function refreshLayers(){
 		
 	}	
 	
+	alert(layer_cache);
+	
 	return layer_xml_cache;
 }
 
 function selectLayer(layer_name) {
-	alert(layer_name);
+	app.activeDocument.activeLayer = layer_cache[layer_name];
 }
 
 function convertToXML(property, identifier){
