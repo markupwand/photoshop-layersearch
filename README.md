@@ -19,6 +19,8 @@ Install
 =======
 <code>
 mkdir -p /Applications/Adobe\ Photoshop\ CS5/Plug-ins/Panels/LayerSearch
+
+
 cp bin-debug/LayerSearch.* /Applications/Adobe\ Photoshop\ CS5/Plug-ins/Panels/LayerSearch/
 </code>
 
