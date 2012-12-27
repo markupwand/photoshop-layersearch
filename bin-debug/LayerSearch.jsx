@@ -364,9 +364,7 @@ function refreshLayers(){
 		layer_xml_cache = xml;
 		
 	}	
-	
-	alert(layer_cache);
-	
+		
 	return layer_xml_cache;
 }
 
