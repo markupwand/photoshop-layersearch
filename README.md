@@ -22,8 +22,8 @@ Install
     mkdir -p /Applications/Adobe\ Photoshop\ CS5/Plug-ins/Panels/LayerSearch
     cp photoshop-layer-search-plugin/bin-debug/LayerSearch.* /Applications/Adobe\ Photoshop\ CS5/Plug-ins/Panels/LayerSearch/
 
-(Warning: Install steps not tested)
+Warning: Install steps not tested  
 
-Use
+How to use
 ===
 After opening a psd file in photoshop, Window->Extensions->LayerSearch
