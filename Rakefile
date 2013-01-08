@@ -1,7 +1,8 @@
 require 'fileutils'
 
 PACKAGE_FOLDER = "package"
-INSTALL_DIR = "/Applications/Adobe Photoshop CS5/Plug-ins/Panels"
+INSTALL_PARENT = "/Applications/Adobe Photoshop CS5/Plug-ins/Panels"
+INSTALL_NAME    = "/LayerSearch"
 
 task :clean do
   puts "Cleaning up"
@@ -24,8 +25,15 @@ task :package => [:clean] do
 end
 
 task :install => [:package]do 
-  puts "Installing LayerSearch"
+  puts "Installing LayerSearch to #{INSTALL_PARENT}"
+  FileUtils.cp_r PACKAGE_FOLDER, (INSTALL_PARENT + INSTALL_NAME)
+  puts
+end
 
+task :uninstall do
+  puts "Uninstalling"
+  FileUtils.rm_rf(INSTALL_PARENT + INSTALL_NAME)
+  puts
 end
 
 
