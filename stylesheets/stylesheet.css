@@ -153,6 +153,7 @@ a.button span {
 }
 
 #download {
+  width: 150px;
   margin-left: 35%;
 }
 #download span {
