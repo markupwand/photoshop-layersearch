@@ -33,7 +33,6 @@
 			}
 			
 			public function refreshLayersInit():void {
-				loglabel.text = "Loading all layers (takes time)";
 				setTimeout(refreshLayers, 1000);
 			}
 			
@@ -48,6 +47,7 @@
 			}
 			
 			public function refreshLayers():void {
+				loglabel.text = "Loading all layers (takes time)";
 				var layers_list:Array = [];
 				var reqResult:SyncRequestResult = CSXSInterface.instance.evalScript("refreshLayers");
 				if(SyncRequestResult.COMPLETE == reqResult.status){
