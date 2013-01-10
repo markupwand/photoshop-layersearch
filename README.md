@@ -10,10 +10,9 @@ Requirements
 ============
 I have tested it only in Adobe PS5, Mac.
 
-Screenshots
+Screenshot
 ===========
-![Focus](http://cl.ly/image/3e071Z1Q0t2I/Screen%20Shot%202012-12-27%20at%2011.19.34%20AM.png)
-![Search](http://cl.ly/image/3N382G2g1Y3P/Screen%20Shot%202012-12-27%20at%2011.19.48%20AM.png)
+![Screenshot](https://www.evernote.com/shard/s8/sh/aaa1e2c9-003f-4eeb-acb2-bab10fcc998b/1acdfe47f7c3286da5f5fd632bf03c07/res/44bada78-bf3a-4ad3-8d8c-3e50f3dd10b1/Photoshop-20130110-142050.png.jpg?resizeSmall&width=832)
 
 Install
 =======
