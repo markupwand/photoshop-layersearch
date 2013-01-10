@@ -114,7 +114,7 @@ a.button {
   line-height: 25px;
   font-weight: bold;
   font-size: 15px;
-  padding: 12px 8px 12px 8px;
+  padding: 2px 8px 2px 8px;
   display: block;
   float: left;
   width: 179px;
@@ -152,12 +152,14 @@ a.button span {
   height: 23px;
 }
 
-#download-zip span {
-  background: transparent url(../images/zip-icon.png) 12px 50% no-repeat;
+#download {
+  margin-left: 35%;
 }
-#download-tar-gz span {
-  background: transparent url(../images/tar-gz-icon.png) 12px 50% no-repeat;
+#download span {
+  padding: 10px 0 10px 50px;
+  background: transparent url(../images/pkg-icon.png) 12px 50% no-repeat;
 }
+
 #view-on-github span {
   background: transparent url(../images/octocat-icon.png) 12px 50% no-repeat;
 }
